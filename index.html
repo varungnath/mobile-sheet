@@ -30,8 +30,18 @@
 </head>
 <body>
   <div class="sheet-container">
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRpwHBIQtUhElKv4E1EPAzOz-TzsB9hAyYmG-Sx6wu36inQGauAgx5H9oCweUSf28SILA565a5q7ELN/pubhtml?gid=51843414&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    <iframe id="sheetFrame"></iframe>
   </div>
+
+  <script>
+    const baseUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRpwHBIQtUhElKv4E1EPAzOz-TzsB9hAyYmG-Sx6wu36inQGauAgx5H9oCweUSf28SILA565a5q7ELN/pubhtml?gid=51843414&single=true&widget=true&headers=false";
+
+    function loadSheet() {
+      const timestamp = new Date().getTime(); // unique number to prevent caching
+      document.getElementById("sheetFrame").src = baseUrl + "&t=" + timestamp;
+    }
+
+    loadSheet(); // load immediately
+  </script>
 </body>
 </html>
-
